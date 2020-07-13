@@ -3,6 +3,8 @@
 namespace DHLTrackAndTraceClient;
 
 use DHLTrackAndTraceClient\Model\ArrayOfstring;
+use DHLTrackAndTraceClient\Model\GetEventsDictionary;
+use DHLTrackAndTraceClient\Model\GetEventsDictionaryResponse;
 use DHLTrackAndTraceClient\Model\GetShipments;
 use DHLTrackAndTraceClient\Model\GetShipmentsResponse;
 use DHLTrackAndTraceClient\Model\TntWebService;
@@ -41,5 +43,14 @@ class Client implements ClientInterface {
         $getShipments = new GetShipments($arrayOfShipments);
 
         return $this->service->GetShipments($getShipments);
+    }
+
+    /**
+     * @return GetEventsDictionaryResponse
+     */
+    public function getEventsDictionary() {
+        $getEventsDictionary = new GetEventsDictionary();
+
+        return $this->service->GetEventsDictionary($getEventsDictionary);
     }
 }
